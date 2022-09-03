@@ -1,9 +1,4 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
-from sklearn import datasets
-
-import streamlit as st
 
 import easyocr as ocr  # OCR
 import streamlit as st  # Web App
@@ -27,12 +22,13 @@ body {
     """, unsafe_allow_html=True)
 
 def app():
-    st.title('English')
-    st.caption('To Extract English Text From Images ')
+    st.title('Arabic')
+    st.caption('To Extract Arabic Text From Images ')
+
 
     # image uploader
     image = st.file_uploader(label="Upload your image here", type=['png', 'jpg', 'jpeg'])
-    reader = ocr.Reader(['en'], model_storage_directory='.')
+    reader = ocr.Reader(['ar'], model_storage_directory='.')
     if image is not None:
         input_image = Image.open(image)  # read image
         st.image(input_image)  # display image
@@ -51,6 +47,5 @@ def app():
                     file.write(result)
         st.balloons()
 
-
-
+       
     st.caption("Made with ❤️ by Nada")
